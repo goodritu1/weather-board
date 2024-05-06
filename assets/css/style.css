@@ -27,11 +27,11 @@ h1 {
     padding: 30px;
 }
 
-.city-input {
+.form-input {
     width: 550px;
 }
 
-.city-input input {
+.form-input input {
     width: 100%;
     height: 46px;
     outline: none;
@@ -48,8 +48,28 @@ h1 {
     height: 100%;
     border: solid;
 }
+.forecast {
+    padding: 5px;
+}
+.forecast h3{
+    font-size: 1.5rem;
+    margin: 20px 0;
+}
+.forecast-card{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.forecast-card .card{
+    list-style:none;
+    color:#ffff;
+    padding: 18px 16px;
+    border-radius: 5px;
+    background: var(--dark);
+    width: auto;
+}
 
-.city-input button {
+.form-input button {
     width: 100%;
     padding: 10px 0;
     cursor: pointer;
@@ -74,3 +94,4 @@ h1 {
     font-size: 1rem;
     font-weight: 500;
 }
+
