@@ -28,12 +28,9 @@ const createWeatherCard = (cityName, weatherItem, index) => {
     }
 }
 const getDetails = (cityName, lat, lon) => {
-    // const lat =data.lat;
-    // console.log (lat);
-    // const lon =data.lat;
-    // console.log (lon);
+ 
 
-    const fiveDaysApi = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${API_Key}&units=imperial`;
+    const fiveDaysApi = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${API_Key}&units=imperial`;
     // the API returns forecast for every 3 hrs for 5 days.
     fetch(fiveDaysApi)
         .then(res => res.json())
@@ -59,37 +56,13 @@ const getDetails = (cityName, lat, lon) => {
                     forecastCardDiv.insertAdjacentHTML("beforeend", createWeatherCard(cityName, weatherItem, index));
                 }
                 // adding weather cards to the page
-                // forecastCardDiv.insertAdjacentHTML("beforeend", createWeatherCard(cityName, weatherItem, index));
+               
             })
         }).catch(() => {
             alert("an error occured while fetchin the coordinates!");
         });
 }
-//  .then(function (response){
-//     if(!response.ok) throw response;
-//     return response.json();
-//  })
-//  .then(function(data){
 
-
-//     const forecastDays =[];
-//     const fiveDaysForecast= data.list.filter(forecast => {
-//         const forecastDate =new Date (forecast.dt_txt).getDate();
-// if (!forecastDays.includes(forecastDate)){
-//     return forecastDays.push(forecastDate);
-// }
-//     });
-
-
-//     console.log(fiveDaysForecast);
-//     fiveDaysForecast.forEach(weatherItem => {
-//         forecastCardDiv.insertAdjacentHTML("beforeend", createWeatherCard(weatherItem))
-
-//     })
-//  }) .catch (function(error){
-//   alert("error");
-//  })
-// }
 
 const getCoordinates = function () {
     const cityName = cityInput.value.trim();
@@ -98,7 +71,7 @@ const getCoordinates = function () {
         return;
     console.log(cityName);
     const limit = 5;
-    const apiUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=${limit}&appid=${API_Key}`;
+    const apiUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=${limit}&appid=${API_Key}`;
     //    console.log(apiUrl);
 
     fetch(apiUrl).then(res => res.json()).then(data => {
@@ -110,8 +83,6 @@ const getCoordinates = function () {
         .catch(() => {
             alert("And error occured while fetching the coordinates!");
         });
-
-
 
 
 }
